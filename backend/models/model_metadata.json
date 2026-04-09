@@ -1,0 +1,40 @@
+{
+  "best_model": "random_forest",
+  "lookback_window": 24,
+  "feature_columns": [
+    "wind_speed",
+    "temperature",
+    "pressure",
+    "hour",
+    "day",
+    "month",
+    "dayofweek",
+    "wind_direction_sin",
+    "wind_direction_cos",
+    "wind_speed_lag_1",
+    "wind_speed_lag_2",
+    "wind_speed_lag_3",
+    "temperature_lag_1",
+    "temperature_lag_2",
+    "temperature_lag_3",
+    "pressure_lag_1",
+    "pressure_lag_2",
+    "pressure_lag_3",
+    "power_output_lag_1",
+    "power_output_lag_2",
+    "power_output_lag_3",
+    "wind_speed_rolling_mean_3",
+    "wind_speed_rolling_mean_6",
+    "power_output_rolling_mean_3",
+    "power_output_rolling_mean_6"
+  ],
+  "tensorflow_available": false,
+  "required_columns": [
+    "wind_speed",
+    "wind_direction",
+    "temperature",
+    "pressure",
+    "timestamp",
+    "power_output"
+  ]
+}
