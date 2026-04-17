@@ -44,6 +44,12 @@ backend/.venv/Scripts/activate
 pip install -r backend/requirements.txt
 ```
 
+For lightweight production deployment on Render, use the runtime-only dependency set instead of the training stack:
+
+```bash
+pip install -r backend/requirements-render.txt
+```
+
 Run the FastAPI backend from the repository root:
 
 ```bash
@@ -51,6 +57,19 @@ uvicorn backend.app.main:app --reload
 ```
 
 The backend serves the API on `http://127.0.0.1:8000` by default.
+
+### Render Deployment
+
+Render can deploy this backend from the repository root with:
+
+```text
+Build Command: pip install -r requirements.txt
+Start Command: uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT
+```
+
+The repository also includes `.python-version` pinned to `3.11.11` so Render uses a TensorFlow-compatible Python line instead of the default `3.14.x`.
+
+If you only need the deployed forecast API, `requirements.txt` points to `backend/requirements-render.txt`, which excludes TensorFlow and other training-only packages because the saved production model currently uses the random forest artifact.
 
 ### Backend Environment
 
